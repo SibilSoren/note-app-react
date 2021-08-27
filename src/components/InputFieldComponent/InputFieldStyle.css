@@ -1,0 +1,43 @@
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.inputField {
+  border: none;
+  background: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.subButton {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: #f08a5d;
+  border-radius: 50%;
+  transition: background 200ms ease-out;
+}
+.subButton:hover {
+  background: #b83b5e;
+}
+
+.subButton p {
+  font-size: 30px;
+  padding: auto;
+  margin: 0px;
+  color: white;
+}
+
+.inputWrapper {
+  width: 50%;
+  border: 1px solid #b83b5e;
+  border-radius: 15px;
+}
+
+.inputTextArea {
+  width: 100%;
+  border: 1px solid #b3afaf;
+  border-radius: 10px;
+  font-size: 15px;
+}

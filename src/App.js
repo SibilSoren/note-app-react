@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import InputField from "./components/InputFieldComponent/InputFieldComponent";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container d-flex justify-content-center main-wrapper p-4">
+      <div className="wrapper">
+        <header>
+          <h2>Notes App</h2>
+          <p className="text-center">Your daily need...</p>
+        </header>
+        <InputField></InputField>
+      </div>
     </div>
   );
 }
