@@ -1,22 +1,22 @@
+import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import TextareaAutosize from "react-textarea-autosize";
 import "./modal.css";
 const EditModal = (props) => {
-  let newTitle = "";
-  let newContent = "";
-
-  // console.log(prevTitle);
+  const [newnoteTitle, setNewNoteTitle] = useState(props.notetitle);
+  const [newnoteContent, setNewNoteContent] = useState(props.notecontent);
+  const [newNoteId, setNewNoteId] = useState(props.noteid);
   const inputHandlerTitle = (e) => {
-    newTitle = e.target.value;
-
-    // console.log(newTitle);
+    setNewNoteTitle(e.target.value);
+    console.log(newnoteTitle);
   };
   const inputHandlerContent = (e) => {
-    newContent = e.target.value;
-    // console.log(newContent);
+    setNewNoteContent(e.target.value);
+    console.log(newnoteContent);
   };
 
   const updateValues = (noteId, noteTitle, noteContent) => {
+    console.log(props.id);
     console.log(noteId, noteTitle, noteContent);
     props.edit(noteId, noteTitle, noteContent);
   };
@@ -34,16 +34,14 @@ const EditModal = (props) => {
       <Modal.Body>
         <input
           type="text"
-          // value={newTitle}
-          placeholder={props.notetitle}
+          value={newnoteTitle}
           onChange={inputHandlerTitle}
           className="col-12 updateInput"
         />
         <TextareaAutosize
           onChange={inputHandlerContent}
           minRows="2"
-          placeholder={props.notecontent}
-          // value={props.noteContent}
+          value={newnoteContent}
           className="inputTextArea d-block  px-2 mt-1"
           required
         />
@@ -52,7 +50,8 @@ const EditModal = (props) => {
         <Button onClick={props.onHide}>Close</Button>
         <Button
           onClick={() => {
-            updateValues(props.noteid, newTitle, newContent);
+            setNewNoteId(props.noteid);
+            updateValues(newNoteId, newnoteTitle, newnoteContent);
             props.onHide();
           }}
         >

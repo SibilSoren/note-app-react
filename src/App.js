@@ -36,7 +36,7 @@ const App = () => {
   });
   const [titleInput, setTitleInput] = useState("");
   const [noteInput, setNoteInput] = useState("");
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(noteList.length);
   const [random, setRandom] = useState(0);
 
   const inputHandlerTitle = (e) => {
@@ -53,6 +53,7 @@ const App = () => {
     });
     setNoteList(newNoteList);
     notifyDelete();
+    console.log(noteList);
   };
 
   const addNote = (e) => {
@@ -78,9 +79,14 @@ const App = () => {
     console.log(noteList);
   };
 
-  const editHandler = (noteId, noteTitle, noteContent, e) => {
-    noteList[noteId].title = noteTitle;
-    noteList[noteId].content = noteContent;
+  const editHandler = (noteId, noteTitle, noteContent) => {
+    for (let i in noteList) {
+      if (noteList[i].id === noteId) {
+        noteList[i].title = noteTitle;
+        noteList[i].content = noteContent;
+      }
+    }
+
     setRandom(random + 1);
     setNoteList(noteList);
     notifyUpdate();
@@ -94,7 +100,7 @@ const App = () => {
     <div>
       <div className="container d-flex justify-content-center main-wrapper p-4">
         <div className="wrapper">
-          <header>
+          <header className="p-2">
             <h2>Notes App</h2>
             <p className="text-center">Your daily need...</p>
           </header>
@@ -112,7 +118,7 @@ const App = () => {
           ></NoteList>
         </div>
       </div>
-      <div className="myFooter text-center p-3">
+      <div className="myFooter text-center p-3 ">
         Made with ❤️ by Sibil Sarjam Soren
       </div>
     </div>
