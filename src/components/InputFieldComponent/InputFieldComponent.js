@@ -18,7 +18,7 @@ const InputField = (props) => {
           onChange={props.onChangeNote}
           minRows="2"
           value={props.noteValue}
-          placeholder="Take a notes"
+          placeholder="Take notes"
           className="inputTextArea d-block  px-2 mt-1"
           required
         />

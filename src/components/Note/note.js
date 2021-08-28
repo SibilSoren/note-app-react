@@ -8,7 +8,7 @@ import EditModal from "../Modal/Modal";
 const Note = ({ title, content, deleteHandler, id, edit }) => {
   const [modalShow, setModalShow] = useState(false);
   return (
-    <div className="container noteWrapper col-3 m-4">
+    <div className="container noteWrapper col-8 col-md-3  m-4">
       <h3 className="text-break">{title}</h3>
       <p className="text-break">{content}</p>
       <div className="menuBar d-flex justify-content-end">
