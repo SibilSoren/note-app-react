@@ -1,0 +1,9 @@
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.updateInput {
+  border: 1px solid #b3afaf;
+  border-radius: 5px;
+}

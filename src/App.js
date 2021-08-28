@@ -1,8 +1,8 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputField from "./components/InputFieldComponent/InputFieldComponent";
 import NoteList from "./components/NoteList/NoteList";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 toast.configure();
@@ -24,10 +24,21 @@ const App = () => {
       autoClose: 5000,
     });
 
-  const [noteList, setNoteList] = useState([]);
+  const notifyUpdate = () =>
+    toast.success("Note updated sucessfully", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      autoClose: 3000,
+    });
+
+  const [noteList, setNoteList] = useState(() => {
+    const localData = localStorage.getItem("notes");
+    return localData ? JSON.parse(localData) : [];
+  });
   const [titleInput, setTitleInput] = useState("");
   const [noteInput, setNoteInput] = useState("");
   const [id, setId] = useState(0);
+  const [random, setRandom] = useState(0);
+
   const inputHandlerTitle = (e) => {
     setTitleInput(e.target.value);
   };
@@ -67,21 +78,42 @@ const App = () => {
     console.log(noteList);
   };
 
+  const editHandler = (noteId, noteTitle, noteContent, e) => {
+    noteList[noteId].title = noteTitle;
+    noteList[noteId].content = noteContent;
+    setRandom(random + 1);
+    setNoteList(noteList);
+    notifyUpdate();
+  };
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(noteList));
+  });
+
   return (
-    <div className="container d-flex justify-content-center main-wrapper p-4">
-      <div className="wrapper">
-        <header>
-          <h2>Notes App</h2>
-          <p className="text-center">Your daily need...</p>
-        </header>
-        <InputField
-          onChangeTitle={inputHandlerTitle}
-          onChangeNote={inputHandlerNote}
-          titleValue={titleInput}
-          noteValue={noteInput}
-          onSubmit={addNote}
-        ></InputField>
-        <NoteList notes={noteList} deleteButt={deleteHandler}></NoteList>
+    <div>
+      <div className="container d-flex justify-content-center main-wrapper p-4">
+        <div className="wrapper">
+          <header>
+            <h2>Notes App</h2>
+            <p className="text-center">Your daily need...</p>
+          </header>
+          <InputField
+            onChangeTitle={inputHandlerTitle}
+            onChangeNote={inputHandlerNote}
+            titleValue={titleInput}
+            noteValue={noteInput}
+            onSubmit={addNote}
+          ></InputField>
+          <NoteList
+            notes={noteList}
+            deleteButt={deleteHandler}
+            edit={editHandler}
+          ></NoteList>
+        </div>
+      </div>
+      <div className="myFooter text-center p-3">
+        Made with ❤️ by Sibil Sarjam Soren
       </div>
     </div>
   );

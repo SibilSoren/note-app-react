@@ -1,7 +1,7 @@
 import React from "react";
 import Note from "../Note/note";
 
-const NoteList = ({ notes, deleteButt }) => {
+const NoteList = ({ notes, deleteButt, edit }) => {
   return (
     <div className="d-flex container my-3 row justify-content-center noteList">
       {notes.length === 0 ? (
@@ -15,6 +15,7 @@ const NoteList = ({ notes, deleteButt }) => {
               title={note.title}
               content={note.content}
               deleteHandler={deleteButt}
+              edit={edit}
             ></Note>
           );
         })
