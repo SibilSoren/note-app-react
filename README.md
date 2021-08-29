@@ -11,7 +11,14 @@ This project is done for Decode 12.1 Full Stack Hackathon organized but **Board 
 ## Technology Stack Used
 
 - React
+- React Hooks
 - Bootstrap
 - HTML
 - CSs
 - Additional npm packages
+
+## Features
+
+- CRUD functionality
+- Notification Alert
+- Saves notes in local storage
