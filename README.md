@@ -22,3 +22,8 @@ This project is done for Decode 12.1 Full Stack Hackathon organized but **Board 
 - CRUD functionality
 - Notification Alert
 - Saves notes in local storage
+
+## Screenshots
+
+![image](./images/Hackathon2.png)
+![image](./images/Hackathon3.png)
