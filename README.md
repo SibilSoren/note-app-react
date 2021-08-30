@@ -14,7 +14,7 @@ This project is done for Decode 12.1 Full Stack Hackathon organized but **Board 
 - React Hooks
 - Bootstrap
 - HTML
-- CSs
+- CSS
 - Additional npm packages
 
 ## Features
@@ -27,3 +27,5 @@ This project is done for Decode 12.1 Full Stack Hackathon organized but **Board 
 
 ![image](./images/Hackathon2.png)
 ![image](./images/Hackathon3.png)
+
+A star to this repo would be motivation :)
