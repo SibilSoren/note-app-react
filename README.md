@@ -28,4 +28,4 @@ This project is done for Decode 12.1 Full Stack Hackathon organized but **Board 
 ![image](./images/Hackathon2.png)
 ![image](./images/Hackathon3.png)
 
-A star to this repo would be motivation :)
+A star to this repo would be a great motivation for me :)
